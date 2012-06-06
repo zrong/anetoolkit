@@ -11,6 +11,17 @@
 # generated files
 bin/
 gen/
+bin-debug/
+bin-release/
+res/
 
 # Local configuration file (sdk path, etc)
 local.properties
+
+# Flash file
+*.swc
+*.ane
+*.swf
+
+# Java package
+*.jar

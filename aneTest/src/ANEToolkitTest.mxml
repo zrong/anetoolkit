@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" applicationComplete="handler_application1applicationComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.utils.ObjectUtil;
+			
+			import org.zengrong.ane.ANEToolkit;
+			
+			protected function handler_installBTNclick($evt:MouseEvent):void
+			{
+//				var __file:File = File.userDirectory;
+//				trace('用户文件存在:', __file.exists);
+//				trace('用户文件是目录:', __file.isDirectory);
+//				trace('用户文件url:', __file.url);
+//				trace('用户文件nativePath:', __file.nativePath);
+//				
+//				var __file2:File = File.applicationDirectory;
+//				trace('程序文件存在:', __file2.exists);
+//				trace('程序文件是目录:', __file2.isDirectory);
+//				trace('程序文件url:', __file2.url);
+//				trace('程序文件nativePath:', __file2.nativePath);
+				
+//				var __file3:File = File.applicationDirectory;
+//				trace('存储文件存在:', __file3.exists);
+//				trace('存储文件是目录:', __file3.isDirectory);
+//				trace('存储文件url:', __file3.url);
+//				trace('存储文件nativePath:', __file3.nativePath);
+				var __dir:String = ANEToolkit.storage.getExternalPublicDir('air.us.sanguo.sg') + '/sgupdate.apk';
+				trace('安装路径:', __dir);
+				ANEToolkit.intent.installAPK(__dir);
+			}
+			
+			private function handler_status($evt:StatusEvent):void
+			{
+				showInfo('********************');
+				showInfo('handler_status');
+				showInfo('level:', $evt.level, ',code:', $evt.code);
+				showInfo('********************');
+			}
+			
+			protected function handler_application1applicationComplete($evt:FlexEvent):void
+			{
+				ANEToolkit.intent.addEventListener(StatusEvent.STATUS, handler_status);
+				ANEToolkit.storage.addEventListener(StatusEvent.STATUS, handler_status);
+			}
+			
+			protected function handler_getStorageBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				showInfo('====================');
+				showInfo('getExternalState:', ANEToolkit.storage.getExternalState());
+				showInfo('====================');
+				var __external:Object = ANEToolkit.storage.getExternal();
+				showInfo('getExternal:', ObjectUtil.toString(__external));
+				showInfo('====================');
+				var __internal:Object = ANEToolkit.storage.getInternal();
+				showInfo('getInternal:', ObjectUtil.toString(__internal));
+				showInfo('====================');
+				showInfo('getExternalPublicDir(Download):', ANEToolkit.storage.getExternalPublicDir('Download'));
+				showInfo('====================');
+				showInfo('getExternalFilesDir(file_tmp):', ANEToolkit.storage.getExternalFilesDir('file_tmp'));
+			}
+			
+			private function handler_delBTNClick($evt:Event):void
+			{
+				clearInfo();
+				showInfo('====================');
+				var __dir:String = ANEToolkit.storage.getExternalPublicDir('air.us.sanguo.sg') + '/sgupdate.apk';
+				trace('删除文件:', __dir);
+				var __del:Boolean = ANEToolkit.storage.delFile(__dir);
+				trace('删除成功：', __del);
+			}
+			
+			
+			protected function handler_getSystemInfoBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				showInfo('====================');
+				showInfo('getBuildInfo:', ObjectUtil.toString(ANEToolkit.systemInfo.getBuildInfo()));
+				showInfo('====================');
+				showInfo('getHardwareInfo:', ObjectUtil.toString(ANEToolkit.systemInfo.getHardwareInfo()));
+				showInfo('====================');
+				showInfo('getTelephony:', ObjectUtil.toString(ANEToolkit.systemInfo.getTelephony()));
+				showInfo('====================');
+				showInfo('getConnectivityInfo:', ObjectUtil.toString(ANEToolkit.systemInfo.getConnectivityInfo()));
+				showInfo('====================');
+				showInfo('getDisplayMetricsInfo:', ObjectUtil.toString(ANEToolkit.systemInfo.getDisplayMetricsInfo()));
+			}
+			
+			protected function handler_getPackageInfoBTNclick($evt:MouseEvent):void
+			{
+				showInfo('====================');
+				showInfo('getPackageName:', ANEToolkit.packageInfo.getPackageName());
+			}
+			
+			protected function handler_showSettings($evt:MouseEvent):void
+			{
+				ANEToolkit.intent.openSettings('android.settings.SETTINGS');
+			}
+			
+			private function showInfo(...$args):void
+			{
+				var __info:String = '';
+				for (var i:int = 0; i < $args.length; i++) 
+				{
+					__info += $args[i] + File.lineEnding;
+				}
+				infoTA.appendText(__info);
+			}
+
+			
+			protected function handler_vibrateBTNclick($evt:MouseEvent):void
+			{
+				if($evt.currentTarget == vibrate1BTN)
+				{
+					ANEToolkit.vibrator.vibrate(100);
+				}
+				else if($evt.currentTarget == vibrate2BTN)
+				{
+					ANEToolkit.vibrator.vibrate(2000);
+				}
+				else if($evt.currentTarget == vibrate3BTN)
+				{
+					ANEToolkit.vibrator.vibrateRepeat(Vector.<int>([100, 20, 300, 20, 15, 20]));
+				}
+			}
+			
+			private function clearInfo():void
+			{
+				infoTA.text = '';
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:TileGroup width="100%">
+		<s:Button id="getStorageBTN" label="获取存储信息" click="handler_getStorageBTNclick(event)"/>
+		<s:Button id="getSystemInfoBTN" label="获取系统信息" click="handler_getSystemInfoBTNclick(event)"/>
+		<s:Button id="getPackageInfoBTN" label="获取包信息" click="handler_getPackageInfoBTNclick(event)"/>
+		<s:Button id="showSettings" label="显示设置面板" click="handler_showSettings(event)"/>
+		<s:Button id="vibrate1BTN" label="振动1" click="handler_vibrateBTNclick(event)"/>
+		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
+		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
+	</s:TileGroup>
+	<s:HGroup width="100%">
+		<s:Button id="installBTN" label="安装" click="handler_installBTNclick(event)"/>
+		<s:TextInput id="apkPathTI" width="100%" prompt="/mnt/sdcard/..../tmp.apk"/>
+	</s:HGroup>
+	<s:HGroup width="100%">
+		<s:Button id="delBTN" label="删除" click="handler_delBTNClick(event)"/>
+		<s:TextInput id="delPathTI" width="100%" prompt="/mnt/sdcard/.../小电影.avi"/>
+	</s:HGroup>
+	<s:VGroup width="100%" height="100%">
+		<s:TextArea id="infoTA" width="100%" height="100%"/>
+		<s:Button id="clearInfoBTN" label="清除" click="clearInfo()"/>
+	</s:VGroup>
+</s:Application>

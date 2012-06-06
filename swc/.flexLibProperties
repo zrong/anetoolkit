@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="true" version="3">
+  <includeClasses>
+    <classEntry path="org.zengrong.ane.ANEToolkit"/>
+    <classEntry path="org.zengrong.ane.enum.ANEContext"/>
+    <classEntry path="org.zengrong.ane.enum.IntentFunction"/>
+    <classEntry path="org.zengrong.ane.enum.StorageFunction"/>
+    <classEntry path="org.zengrong.ane.tool.ToolBase"/>
+    <classEntry path="org.zengrong.ane.tool.IntentCont"/>
+    <classEntry path="org.zengrong.ane.tool.StorageCont"/>
+    <classEntry path="org.zengrong.ane.enum.StorageState"/>
+    <classEntry path="org.zengrong.ane.enum.PackageInfoFunction"/>
+    <classEntry path="org.zengrong.ane.enum.SystemInfoFunction"/>
+    <classEntry path="org.zengrong.ane.enum.SimState"/>
+    <classEntry path="org.zengrong.ane.enum.NetworkType"/>
+    <classEntry path="org.zengrong.ane.enum.PhoneType"/>
+    <classEntry path="org.zengrong.ane.tool.SystemInfoCont"/>
+    <classEntry path="org.zengrong.ane.tool.PackageInfoCont"/>
+    <classEntry path="org.zengrong.ane.tool.VibratorCont"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
