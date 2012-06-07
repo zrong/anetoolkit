@@ -29,7 +29,7 @@ public class GetInternal implements FREFunction
 		{
 			__obj = FREObject.newObject("Object", null);
 			__obj.setProperty("cacheDir", FREObject.newObject(__activity.getCacheDir().getAbsolutePath()));
-			__obj.setProperty("fileDir", FREObject.newObject(__activity.getFilesDir().getAbsolutePath()));
+			__obj.setProperty("filesDir", FREObject.newObject(__activity.getFilesDir().getAbsolutePath()));
 			__obj.setProperty("dataDirectory", FREObject.newObject(Environment.getDataDirectory().getAbsolutePath()));
 			__obj.setProperty("downloadCacheDirectory", FREObject.newObject(Environment.getDownloadCacheDirectory().getAbsolutePath()));
 			__obj.setProperty("rootDirectory", FREObject.newObject(Environment.getRootDirectory().getAbsolutePath()));

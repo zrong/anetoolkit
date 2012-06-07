@@ -7,8 +7,22 @@ import com.adobe.fre.FREObject;
 abstract public class FunctionBase implements FREFunction
 {
 
+	private FREContext _context;
+	
+	abstract protected int getArgNum();
+	
 	@Override
-	abstract public FREObject call(FREContext arg0, FREObject[] arg1);
+	public FREObject call(FREContext $context, FREObject[] $args)
+	{
+		_context = $context;
+		return null;
+
+	}
+	
+	protected void checkArgs(FREObject[] $args)
+	{
+
+	}
 	
 
 }

@@ -36,5 +36,30 @@ public class StorageFunction
 	 * 删除文件
 	 */
 	public static const DEL_FILE:String = 'DEL_FILE';
+	
+	/**
+	 * 获取文件状态
+	 */
+	public static const GET_FILE_STATE:String = 'GET_FILE_STATE';
+	
+	/**
+	 * 写入文件
+	 */
+	public static const WRITE_FILE:String = 'WRITE_FILE';
+	
+	/**
+	 * 读取文件
+	 */
+	public static const READ_FILE:String = 'READ_FILE';
+	
+	/**
+	 * 获取可用的目录
+	 */
+	public static const GET_AVAILABLE_FILES_DIR:String = 'GET_AVAILABLE_FILES_DIR';
+	
+	/**
+	 * 获取目录
+	 */
+	public static const GET_DIR:String = 'GET_DIR';
 }
 }

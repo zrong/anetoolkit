@@ -7,7 +7,7 @@ import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
 /**
- * 获取当前应用的绝对路径
+ * 获取当前应用的files目录的绝对路径
  * @author zrong
  * 创建日期：2012-6-5
  */

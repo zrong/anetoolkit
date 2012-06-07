@@ -8,30 +8,6 @@
 			
 			import org.zengrong.ane.ANEToolkit;
 			
-			protected function handler_installBTNclick($evt:MouseEvent):void
-			{
-//				var __file:File = File.userDirectory;
-//				trace('用户文件存在:', __file.exists);
-//				trace('用户文件是目录:', __file.isDirectory);
-//				trace('用户文件url:', __file.url);
-//				trace('用户文件nativePath:', __file.nativePath);
-//				
-//				var __file2:File = File.applicationDirectory;
-//				trace('程序文件存在:', __file2.exists);
-//				trace('程序文件是目录:', __file2.isDirectory);
-//				trace('程序文件url:', __file2.url);
-//				trace('程序文件nativePath:', __file2.nativePath);
-				
-//				var __file3:File = File.applicationDirectory;
-//				trace('存储文件存在:', __file3.exists);
-//				trace('存储文件是目录:', __file3.isDirectory);
-//				trace('存储文件url:', __file3.url);
-//				trace('存储文件nativePath:', __file3.nativePath);
-				var __dir:String = ANEToolkit.storage.getExternalPublicDir('air.us.sanguo.sg') + '/sgupdate.apk';
-				trace('安装路径:', __dir);
-				ANEToolkit.intent.installAPK(__dir);
-			}
-			
 			private function handler_status($evt:StatusEvent):void
 			{
 				showInfo('********************');
@@ -123,7 +99,7 @@
 				}
 				else if($evt.currentTarget == vibrate3BTN)
 				{
-					ANEToolkit.vibrator.vibrateRepeat(Vector.<int>([100, 20, 300, 20, 15, 20]));
+					ANEToolkit.vibrator.vibrateRepeat(Vector.<int>([15, 20, 300, 20, 150]));
 				}
 			}
 			
@@ -131,12 +107,58 @@
 			{
 				infoTA.text = '';
 			}
+			
+			protected function handler_installBTNclick($evt:MouseEvent):void
+			{
+				var __dir:String = ANEToolkit.storage.getExternalPublicDir('air.us.sanguo.sg') + '/sgupdate.apk';
+				trace('安装路径:', __dir);
+				var __info:String = ObjectUtil.toString(ANEToolkit.storage.getFileState(__dir));
+				clearInfo();
+				showInfo('getFileState:', __info);
+				//ANEToolkit.intent.installAPK(__dir);
+			}
+			
+			
+			protected function handler_readFileBTNclick($evt:MouseEvent):void
+			{
+				//var __ba:ByteArray = ANEToolkit.storage.readFile('/proc/cpuinfo');
+				//var __dir:String = ANEToolkit.storage.getDir('aab', 0);
+				var __dir:String = ANEToolkit.storage.getDir('aac', 1);
+				//var __dir:String = ANEToolkit.storage.getDir('aad', 2);
+				trace(__dir);
+			}
+			
+			protected function handler_getFileStateBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				var __dir:String = ANEToolkit.storage.getExternalPublicDir('air.us.sanguo.sg') + '/sgupdate.apk';
+				showInfo('获取路径:', __dir);
+				var __info:String = ObjectUtil.toString(ANEToolkit.storage.getFileState(__dir));
+				showInfo('getFileState:', __info);
+			}
+			
+			protected function handler_writeFileBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				var __dir:String = ANEToolkit.storage.getInternal().filesDir;
+				var __ba:ByteArray = new ByteArray();
+				for (var i:int = 0; i < 100000; i++) 
+				{
+					__ba.writeInt(i);
+				}
+				var __file:String = __dir+'/aaa.ini';
+				var __succ:* = ANEToolkit.storage.writeFile(__file, __ba);
+				showInfo('save:', __file);
+				showInfo('succ:', __succ);
+			}
+			
+			protected function handler_getAvailFileBTNClick($evt:MouseEvent):void
+			{
+				clearInfo();
+				showInfo(ANEToolkit.storage.getAvailableFilesDir("tmp_file.apk"));
+			}
 		]]>
 	</fx:Script>
-	
-	<fx:Declarations>
-		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
-	</fx:Declarations>
 	<s:layout>
 		<s:VerticalLayout/>
 	</s:layout>
@@ -149,14 +171,15 @@
 		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
 	</s:TileGroup>
-	<s:HGroup width="100%">
+	<s:TileGroup width="100%">
 		<s:Button id="installBTN" label="安装" click="handler_installBTNclick(event)"/>
-		<s:TextInput id="apkPathTI" width="100%" prompt="/mnt/sdcard/..../tmp.apk"/>
-	</s:HGroup>
-	<s:HGroup width="100%">
-		<s:Button id="delBTN" label="删除" click="handler_delBTNClick(event)"/>
-		<s:TextInput id="delPathTI" width="100%" prompt="/mnt/sdcard/.../小电影.avi"/>
-	</s:HGroup>
+		<s:Button id="readBTN" label="删除" click="handler_delBTNClick(event)"/>
+		<s:Button id="readFileBTN" label="读取文件" click="handler_readFileBTNclick(event)"/>
+		<s:Button id="getFileStateBTN" label="获取文件状态" click="handler_getFileStateBTNclick(event)"/>
+		<s:Button id="writeFileBTN" label="写入文件" click="handler_writeFileBTNclick(event)"/>
+		<s:Button id="getAvailFilesBTN" label="获取可用目录" click="handler_getAvailFileBTNClick(event)"/>
+	</s:TileGroup>
+	<s:TextInput id="fileTI" width="100%" prompt="输入待处理文件的绝对路径"/>
 	<s:VGroup width="100%" height="100%">
 		<s:TextArea id="infoTA" width="100%" height="100%"/>
 		<s:Button id="clearInfoBTN" label="清除" click="clearInfo()"/>

@@ -7,7 +7,7 @@ import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
 /**
- * 获取外部存储公开路径
+ * 获取外部存储公开路径，一般位于/mnt/sdcard下
  * @author zrong
  * 创建日期：2012-6-5
  */
