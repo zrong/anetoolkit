@@ -99,10 +99,10 @@ public class StorageCont extends ToolBase
 	 * @param $append 是否使用增量写入。增量写入会将数据插入到已存在文件尾部，否则会直接替换文件。如果该文件不存在，会自动创建。
 	 * @return true写入成功,false写入失败。失败的可能性包括无法成功创建文件，或者无法替换现有文件。
 	 */	
-	public function writeFile($path:String, $ba:ByteArray, $append:Boolean=false):ByteArray
+	public function writeFile($path:String, $ba:ByteArray, $append:Boolean=false):Boolean
 	{
 		if(!$path || !$ba || $ba.length==0) throw TypeError('必须提供文件的完整路径和内容！');
-		return _extension.call(StorageFunction.WRITE_FILE, $path, $ba, $append) as ByteArray;
+		return _extension.call(StorageFunction.WRITE_FILE, $path, $ba, $append) as Boolean;
 	}
 	
 	/**
