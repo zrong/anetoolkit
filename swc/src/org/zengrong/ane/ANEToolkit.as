@@ -6,6 +6,7 @@ import flash.system.Capabilities;
 import org.zengrong.ane.enum.ANEContext;
 import org.zengrong.ane.tool.IntentCont;
 import org.zengrong.ane.tool.PackageInfoCont;
+import org.zengrong.ane.tool.PreferenceCont;
 import org.zengrong.ane.tool.StorageCont;
 import org.zengrong.ane.tool.SystemInfoCont;
 import org.zengrong.ane.tool.VibratorCont;
@@ -27,6 +28,7 @@ public class ANEToolkit
 	protected static var _systemInfoCont:SystemInfoCont = null;
 	protected static var _vibratorCont:VibratorCont = null;
 	protected static var _packageInfoCont:PackageInfoCont= null;
+	protected static var _preferenceCont:PreferenceCont= null;
 	
 	/**
 	 * 获取Intent功能
@@ -93,6 +95,19 @@ public class ANEToolkit
 			_packageInfoCont = new PackageInfoCont(ExtensionContext.createExtensionContext(EXT_ID, ANEContext.PACKAGE_INFO));
 		}
 		return _packageInfoCont;
+	}
+	
+	/**
+	 * 存取Android的SharedPreference
+	 */
+	public static function get preference():PreferenceCont
+	{
+		if(!_preferenceCont)
+		{
+			checkSuppored();
+			_preferenceCont = new PreferenceCont(ExtensionContext.createExtensionContext(EXT_ID, ANEContext.PREFERENCE));
+		}
+		return _preferenceCont;
 	}
 	
 	protected static function get isSupported() : Boolean

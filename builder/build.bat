@@ -22,4 +22,4 @@ del Android-ARM\catalog.xml
 %FLEX_ADT% -package -target ane %ANE_TARGET% extension.xml -swc %ANE_SWC% -platform Android-ARM -C ./Android-ARM/ . -platform default -C ./Android-ARM/ library.swf
 
 @REM 复制打包后的ANE到目标lib
-copy /B /Y %ANE_TARGET% ..\aneTest\libs
+@REM copy /B /Y %ANE_TARGET% ..\aneTest\libs

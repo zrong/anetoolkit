@@ -26,5 +26,10 @@ public class ANEContext
 	 * 获取包信息功能的上下文
 	 */
 	public static const PACKAGE_INFO:String = 'PACKAGE_INFO';
+	
+	/**
+	 * 获取包信息功能的上下文
+	 */
+	public static const PREFERENCE:String = 'PREFERENCE';
 }
 }

@@ -73,7 +73,11 @@
 			
 			protected function handler_showSettings($evt:MouseEvent):void
 			{
-				ANEToolkit.intent.openSettings('android.settings.SETTINGS');
+//				ANEToolkit.intent.openSettings('android.settings.SETTINGS');
+//				ANEToolkit.intent.openSettings('android.settings.NETWORK_OPERATOR_SETTINGS');
+//				ANEToolkit.intent.openSettings('android.settings.WIFI_IP_SETTINGS');
+				ANEToolkit.intent.openSettings('android.settings.WIFI_SETTINGS');
+//				ANEToolkit.intent.openSettings('android.settings.WIRELESS_SETTINGS');
 			}
 			
 			private function showInfo(...$args):void
@@ -99,7 +103,7 @@
 				}
 				else if($evt.currentTarget == vibrate3BTN)
 				{
-					ANEToolkit.vibrator.vibrateRepeat(Vector.<int>([15, 20, 300, 20, 150]));
+					ANEToolkit.vibrator.vibrateRepeat(Vector.<int>([100, 50, 100, 50]));
 				}
 			}
 			
