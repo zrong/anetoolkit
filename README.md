@@ -8,6 +8,7 @@ anetoolkit
 * 安装APK文件
 * 调用各种设置面板
 * 振动
+* 管理PowerManager功能，取消休眠
 * 访问SD卡状态
 * 读取AIR不能读取的文件
 * 向AIR不能读取的路径写入文件
