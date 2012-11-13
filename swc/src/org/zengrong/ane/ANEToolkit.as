@@ -6,6 +6,7 @@ import flash.system.Capabilities;
 import org.zengrong.ane.enum.ANEContext;
 import org.zengrong.ane.tool.IntentCont;
 import org.zengrong.ane.tool.PackageInfoCont;
+import org.zengrong.ane.tool.PowerCont;
 import org.zengrong.ane.tool.PreferenceCont;
 import org.zengrong.ane.tool.StorageCont;
 import org.zengrong.ane.tool.SystemInfoCont;
@@ -29,6 +30,7 @@ public class ANEToolkit
 	protected static var _vibratorCont:VibratorCont = null;
 	protected static var _packageInfoCont:PackageInfoCont= null;
 	protected static var _preferenceCont:PreferenceCont= null;
+	protected static var _powerCont:PowerCont = null;
 	
 	/**
 	 * 获取Intent功能
@@ -109,6 +111,20 @@ public class ANEToolkit
 		}
 		return _preferenceCont;
 	}
+	
+	/**
+	 * 管理Android的电源，PowerManager
+	 */
+	public static function get power():PowerCont
+	{
+		if(!_powerCont)
+		{
+			checkSuppored();
+			_powerCont= new PowerCont(ExtensionContext.createExtensionContext(EXT_ID, ANEContext.POWER));
+		}
+		return _powerCont;
+	}
+	
 	
 	protected static function get isSupported() : Boolean
 	{

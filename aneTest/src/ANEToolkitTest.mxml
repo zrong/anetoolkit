@@ -7,6 +7,7 @@
 			import mx.utils.ObjectUtil;
 			
 			import org.zengrong.ane.ANEToolkit;
+			import org.zengrong.ane.enum.PowerType;
 			
 			private function handler_status($evt:StatusEvent):void
 			{
@@ -161,6 +162,37 @@
 				clearInfo();
 				showInfo(ANEToolkit.storage.getAvailableFilesDir("tmp_file.apk"));
 			}
+			
+			protected function acquireBTN_clickHandler(event:MouseEvent):void
+			{
+				ANEToolkit.power.acquire(PowerType.SCREEN_DIM_WAKE_LOCK, 30000);
+			}
+			
+			protected function releaseBTN_clickHandler(event:MouseEvent):void
+			{
+				ANEToolkit.power.release(PowerType.SCREEN_DIM_WAKE_LOCK);
+			}
+			
+			protected function goToSleepBTN_clickHandler(event:MouseEvent):void
+			{
+				ANEToolkit.power.goToSleep(0);
+			}
+			
+			protected function rebootBTN_clickHandler(event:MouseEvent):void
+			{
+				ANEToolkit.power.reboot("test reboot");
+			}
+			
+			protected function userActivityBTN_clickHandler(event:MouseEvent):void
+			{
+				ANEToolkit.power.userActivity(0, true);
+			}
+			
+			protected function isScreenBTN_clickHandler(event:MouseEvent):void
+			{
+				showInfo("屏幕是否打开：", ANEToolkit.power.isScreenOn());
+			}
+			
 		]]>
 	</fx:Script>
 	<s:layout>
@@ -182,6 +214,14 @@
 		<s:Button id="getFileStateBTN" label="获取文件状态" click="handler_getFileStateBTNclick(event)"/>
 		<s:Button id="writeFileBTN" label="写入文件" click="handler_writeFileBTNclick(event)"/>
 		<s:Button id="getAvailFilesBTN" label="获取可用目录" click="handler_getAvailFileBTNClick(event)"/>
+	</s:TileGroup>
+	<s:TileGroup width="100%">
+		<s:Button id="acquireBTN" label="acquire" click="acquireBTN_clickHandler(event)"/>
+		<s:Button id="releaseBTN" label="release" click="releaseBTN_clickHandler(event)"/>
+		<s:Button id="goToSleepBTN" label="goToSleep" click="goToSleepBTN_clickHandler(event)"/>
+		<s:Button id="rebootBTN" label="reboot" click="rebootBTN_clickHandler(event)"/>
+		<s:Button id="userActivityBTN" label="userActivity" click="userActivityBTN_clickHandler(event)"/>
+		<s:Button id="isScreenBTN" label="isScreen" click="isScreenBTN_clickHandler(event)"/>
 	</s:TileGroup>
 	<s:TextInput id="fileTI" width="100%" prompt="输入待处理文件的绝对路径"/>
 	<s:VGroup width="100%" height="100%">

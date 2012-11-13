@@ -18,6 +18,8 @@
     <classEntry path="org.zengrong.ane.tool.PackageInfoCont"/>
     <classEntry path="org.zengrong.ane.tool.VibratorCont"/>
     <classEntry path="org.zengrong.ane.enum.PreferenceType"/>
+    <classEntry path="org.zengrong.ane.enum.PowerFunction"/>
+    <classEntry path="org.zengrong.ane.enum.PowerType"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

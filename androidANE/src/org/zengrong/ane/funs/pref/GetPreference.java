@@ -42,7 +42,7 @@ public class GetPreference implements FREFunction
 				__strvalue = getStringValue(__setting, __key);
 				__obj = FREObject.newObject(__strvalue);
 			}
-			Log.i(TAG, "call:"+",keyType:"+__keyType+",key:"+__key+",value:"+__strvalue);
+			Log.i(TAG, "call:"+__name+",keyType:"+__keyType+",key:"+__key+",value:"+__strvalue);
 			return __obj;
 		} 
 		catch (Exception $e)
@@ -55,7 +55,7 @@ public class GetPreference implements FREFunction
 	
 	public int getIntValue(SharedPreferences $setting, String $key)
 	{
-		return $setting.getInt($key, 0);
+		return $setting.getInt($key, -1);
 	}
 	
 	public String getStringValue(SharedPreferences $setting, String $key)

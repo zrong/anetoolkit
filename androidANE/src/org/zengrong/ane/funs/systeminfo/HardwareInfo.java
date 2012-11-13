@@ -124,6 +124,7 @@ public class HardwareInfo implements FREFunction
 	                BufferedReader br = new BufferedReader(fr);
 	                String text = br.readLine();
 	                __speed = Integer.valueOf(text.trim()).longValue();
+	                br.close();
 	        } catch (Exception $e) {
 	        	_context.dispatchStatusEventAsync($e.getMessage(), TAG);
 	        }
@@ -139,6 +140,7 @@ public class HardwareInfo implements FREFunction
 	                BufferedReader br = new BufferedReader(fr);
 	                String text = br.readLine();
 	                String[] array = text.split(":\\s+", 2);
+	                br.close();
 	                return array[1];
 	        } catch (Exception $e) {
 		        _context.dispatchStatusEventAsync($e.getMessage(), TAG);

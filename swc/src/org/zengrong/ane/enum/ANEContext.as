@@ -1,5 +1,10 @@
 package org.zengrong.ane.enum
 {
+/**
+ * 整个ANE的上下文枚举定义 
+ * @author zrong
+ * 创建日期：2012-11-12
+ */
 public class ANEContext
 {
 	/**
@@ -31,5 +36,10 @@ public class ANEContext
 	 * 获取包信息功能的上下文
 	 */
 	public static const PREFERENCE:String = 'PREFERENCE';
+	
+	/**
+	 * 获取电源管理功能的上下文
+	 */
+	public static const POWER:String = 'POWER';
 }
 }

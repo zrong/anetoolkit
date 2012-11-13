@@ -24,6 +24,7 @@ public class PreferenceCont extends ToolBase
 	 * @param $settingName 保存的对象的名称
 	 * @param $keyType 值的类型
 	 * @param $keyName 值的名称
+	 * 如果值不存在，对于int来说，将返回-1；对于字符串类型来说，将返回空字符串
 	 */	
 	public function getValue($settingName:String, $keyType:String, $keyName:String):*
 	{

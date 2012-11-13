@@ -2,6 +2,7 @@ package org.zengrong.ane;
 
 import org.zengrong.ane.context.IntentCont;
 import org.zengrong.ane.context.PackageCont;
+import org.zengrong.ane.context.PowerCont;
 import org.zengrong.ane.context.PreferenceCont;
 import org.zengrong.ane.context.StorageCont;
 import org.zengrong.ane.context.SystemInfoCont;
@@ -17,7 +18,7 @@ public class AndroidANE implements FREExtension
 
 	public static final String TAG = "org.zengrong.ane.AndroidANE";
 	
-	public static enum ANEContext{INTENT, VIBRATOR, STORAGE, SYSTEM_INFO, PACKAGE_INFO, PREFERENCE};
+	public static enum ANEContext{INTENT, VIBRATOR, STORAGE, SYSTEM_INFO, PACKAGE_INFO, PREFERENCE, POWER};
 	@Override
 	public FREContext createContext(String $type)
 	{
@@ -33,6 +34,8 @@ public class AndroidANE implements FREExtension
 		if(ANEContext.VIBRATOR.toString().equals($type)) return new VibratorCont();
 		//保存和获取共享对象
 		if(ANEContext.PREFERENCE.toString().equals($type)) return new PreferenceCont();
+		//管理电源
+		if(ANEContext.POWER.toString().equals($type)) return new PowerCont();
 		
 		return null;
 	}

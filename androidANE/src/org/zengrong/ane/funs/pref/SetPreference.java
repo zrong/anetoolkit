@@ -18,6 +18,7 @@ public class SetPreference implements FREFunction
 	public FREObject call(FREContext $context, FREObject[] $args)
 	{
 		_context = $context;
+		Log.i(TAG, "setPreference call");
 		try
 		{
 			String __name = $args[0].getAsString();
@@ -26,12 +27,12 @@ public class SetPreference implements FREFunction
 			if(__keyType.equals(PreferenceType.INT))
 			{
 				setIntValue(_context.getActivity().getSharedPreferences(__name, 0), __key, $args[3].getAsInt());
-				Log.i(TAG, "call:"+__name+",int,key:"+__key+",value:"+Integer.toString($args[3].getAsInt()));
+				Log.i(TAG, "call:"+__name+",keyType:"+__keyType+",key:"+__key+",value:"+Integer.toString($args[3].getAsInt()));
 			}
 			else
 			{
 				setStringValue(_context.getActivity().getSharedPreferences(__name, 0), __key, $args[3].getAsString());
-				Log.i(TAG, "call:"+__name+",int,key:"+__key+",value:"+$args[3].getAsString());
+				Log.i(TAG, "call:"+__name+",keyType:"+__keyType+",key:"+__key+",value:"+$args[3].getAsString());
 			}
 		}
 		catch(Exception $e)
