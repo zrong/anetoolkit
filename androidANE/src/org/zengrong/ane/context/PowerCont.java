@@ -13,7 +13,7 @@ import org.zengrong.ane.funs.power.UserActivity;
 
 import com.adobe.fre.FREFunction;
 /**
- * 支持振动功能的上下文
+ * 支持电源管理功能的上下文
  * @author zrong
  * 创建日期：2012-6-6
  * 修改日期：2013-01-25
@@ -42,7 +42,6 @@ public class PowerCont extends ContextBase
 		functions.put(FUNS.FLAG_KEEP_SCREEN_ON.toString(), new FlagKeepScreenOn());
 		return functions;
 	}
-
 
 	@Override
 	public String getTag()
