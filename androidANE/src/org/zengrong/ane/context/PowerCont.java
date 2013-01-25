@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.zengrong.ane.funs.power.Acquire;
+import org.zengrong.ane.funs.power.FlagKeepScreenOn;
 import org.zengrong.ane.funs.power.GoToSleep;
 import org.zengrong.ane.funs.power.IsScreenOn;
 import org.zengrong.ane.funs.power.Reboot;
@@ -15,6 +16,7 @@ import com.adobe.fre.FREFunction;
  * 支持振动功能的上下文
  * @author zrong
  * 创建日期：2012-6-6
+ * 修改日期：2013-01-25
  */
 public class PowerCont extends ContextBase
 {
@@ -24,7 +26,7 @@ public class PowerCont extends ContextBase
 	 * 记录所有支持的FREFunction
 	 * @author zrong
 	 */
-	public static enum FUNS{ACQUIRE, RELEASE, GO_TO_SLEEP, IS_SCREEN_ON, REBOOT, USER_ACTIVITY};
+	public static enum FUNS{ACQUIRE, RELEASE, GO_TO_SLEEP, IS_SCREEN_ON, REBOOT, USER_ACTIVITY, FLAG_KEEP_SCREEN_ON};
 	
 
 	@Override
@@ -37,6 +39,7 @@ public class PowerCont extends ContextBase
 		functions.put(FUNS.IS_SCREEN_ON.toString(), new IsScreenOn());
 		functions.put(FUNS.USER_ACTIVITY.toString(), new UserActivity());
 		functions.put(FUNS.REBOOT.toString(), new Reboot());
+		functions.put(FUNS.FLAG_KEEP_SCREEN_ON.toString(), new FlagKeepScreenOn());
 		return functions;
 	}
 

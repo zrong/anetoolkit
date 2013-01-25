@@ -15,7 +15,7 @@ import com.adobe.fre.FREObject;
  */
 public class GoToSleep implements FREFunction
 {
-	public static final String TAG = "org.zengrong.ane.funs.vibrator.GoToSleep";
+	public static final String TAG = "org.zengrong.ane.funs.power.GoToSleep";
 	
 	private FREContext _context;
 	

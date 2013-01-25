@@ -36,5 +36,10 @@ public class PowerFunction
 	 * 切换到睡眠状态
 	 */
 	public static const GO_TO_SLEEP:String = "GO_TO_SLEEP";
+	
+	/**
+	 * 保持当前Activity常亮
+	 */
+	public static const FLAG_KEEP_SCREEN_ON:String = "FLAG_KEEP_SCREEN_ON";
 }
 }

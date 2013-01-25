@@ -3,12 +3,12 @@ package org.zengrong.ane.tool
 import flash.external.ExtensionContext;
 
 import org.zengrong.ane.enum.PowerFunction;
-import org.zengrong.ane.enum.VibratorFunction;
 
 /**
  * 振动功能
  * @author zrong
  * 创建日期：2012-6-6
+ * 修改日期：2013-01-24 加入对计数锁和不计数锁的支持
  */
 public class PowerCont extends ToolBase
 {
@@ -30,11 +30,12 @@ public class PowerCont extends ToolBase
 	 * 执行对电源的设置
 	 * @param $flags 要设置的电源模式，具体使用方法见：http://developer.android.com/reference/android/os/PowerManager.html
 	 * @param $timeout 如果为大于0，则为超时锁，否则为永久锁。
+	 * @param $counted 如果值为true，则为计数锁，否则为不计数锁。
 	 * @see http://developer.android.com/reference/android/os/PowerManager.html
 	 * 需要WAKE_LOCK权限
 	 * @see http://developer.android.com/reference/android/Manifest.permission.html#WAKE_LOCK
 	 */	
-	public function acquire($flags:int, $timeout:int=0):void
+	public function acquire($flags:int, $timeout:int=0, $counted:Boolean=true):void
 	{
 		if($flags<=0) throw new RangeError('请提供一个正确的flags!');
 		_extension.call(PowerFunction.ACQUIRE, $flags, $timeout);
@@ -78,6 +79,15 @@ public class PowerCont extends ToolBase
 	public function userActivity($when:int, $noChangeLights:Boolean):void
 	{
 		_extension.call(PowerFunction.USER_ACTIVITY, $when, $noChangeLights);
+	}
+	
+	/**
+	 * 使用WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON来保持当前Activity常亮
+	 * @see http://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_KEEP_SCREEN_ON
+	 */
+	public function flagKeepScreenOn():void
+	{
+		_extension.call(PowerFunction.FLAG_KEEP_SCREEN_ON);
 	}
 }
 }

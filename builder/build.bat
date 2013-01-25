@@ -23,6 +23,3 @@ del Android-ARM\catalog.xml
 
 @REM 复制打包后的ANE到目标lib
 copy /B /Y %ANE_TARGET% ..\aneTest\libs
-copy /B /Y %ANE_TARGET% d:\works\sg\project_client\sgane\sganetest\libs\
-copy /B /Y %ANE_TARGET% d:\works\sg\project_client\build\original_files\extensions\
-copy /B /Y %ANE_TARGET% d:\works\sg\project_client\sgParent\libs\

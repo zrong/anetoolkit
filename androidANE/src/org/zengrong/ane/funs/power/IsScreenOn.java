@@ -18,7 +18,7 @@ import com.adobe.fre.FREWrongThreadException;
  */
 public class IsScreenOn implements FREFunction
 {
-	public static final String TAG = "org.zengrong.ane.funs.vibrator.IsScreenOn";
+	public static final String TAG = "org.zengrong.ane.funs.power.IsScreenOn";
 	
 	private FREContext _context;
 	
