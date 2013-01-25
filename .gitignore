@@ -20,7 +20,6 @@ local.properties
 
 # Flash file
 *.swc
-*.ane
 *.swf
 
 # Java package
