@@ -46,6 +46,7 @@ cert
 
 # Flash Builder
 .actionScriptProperties
+.flexProperties
 .flexLibProperties
 bin-debug
 bin-release/
