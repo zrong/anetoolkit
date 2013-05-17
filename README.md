@@ -20,3 +20,9 @@ anetoolkit
 * 电源管理，禁止休眠，保持屏幕常亮
 
 文档:<http://zrong.github.com/doc/anetoolkit/>
+
+## 编译方法
+
+* 复制 `build/example.build.config` 为 `build/build.config`
+* 修改其中的 `flex.sdk` 和 `android.sdk` 变量为正确的路径
+* 运行 `ant android-ane`
