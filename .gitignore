@@ -18,6 +18,7 @@ android/bin
 android/gen
 android/res
 android/lint.xml
+android/proguard.cfg
 .classpath
 proguard-project.txt
 project.properties
