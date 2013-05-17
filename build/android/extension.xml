@@ -4,7 +4,7 @@
   <platforms>
 	<platform name="Android-ARM">
       <applicationDeployment>
-        <nativeLibrary>AndroidANE.jar</nativeLibrary>
+        <nativeLibrary>libANEToolkit.jar</nativeLibrary>
         <initializer>org.zengrong.ane.AndroidANE</initializer>
         <finalizer>org.zengrong.ane.AndroidANE</finalizer>
       </applicationDeployment>

@@ -17,5 +17,6 @@ anetoolkit
 * 获取手机信息，包括品牌、名称等等
 * 获取网络名称，包括手机号码（部分手机可用）、手机网络（GPRS/GSM/WCDMA...）
 * 获取网络连通状态
+* 电源管理，禁止休眠，保持屏幕常亮
 
 文档:<http://zrong.github.com/doc/anetoolkit/>
