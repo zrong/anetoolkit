@@ -17,7 +17,7 @@ import com.adobe.fre.FREObject;
  */
 public class Reboot implements FREFunction
 {
-	public static final String TAG = "org.zengrong.ane.funs.vibrator.Reboot";
+	public static final String TAG = "org.zengrong.ane.funs.power.Reboot";
 	
 	private FREContext _context;
 	

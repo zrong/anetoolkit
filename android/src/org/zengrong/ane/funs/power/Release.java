@@ -15,7 +15,7 @@ import com.adobe.fre.FREObject;
  */
 public class Release implements FREFunction
 {
-	public static final String TAG = "org.zengrong.ane.funs.vibrator.Release";
+	public static final String TAG = "org.zengrong.ane.funs.power.Release";
 	
 	private FREContext _context;
 	

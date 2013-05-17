@@ -15,7 +15,7 @@ import com.adobe.fre.FREObject;
  */
 public class UserActivity implements FREFunction
 {
-	public static final String TAG = "org.zengrong.ane.funs.vibrator.UserActivity";
+	public static final String TAG = "org.zengrong.ane.funs.power.UserActivity";
 	
 	private FREContext _context;
 	
