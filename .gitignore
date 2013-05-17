@@ -1,27 +1,57 @@
-# built application files
-*.apk
-*.ap_
+# General
+temp
+build.config
 
 # files for the dex VM
 *.dex
 
-# Java class files
+# Java
 *.class
+*.jar
 
-# generated files
-bin/
-gen/
-bin-debug/
+# Eclipse
+.settings
+.project
+
+# Android
+android/bin
+android/gen
+android/res
+android/lint.xml
+.classpath
+proguard-project.txt
+project.properties
+*.apk
+*.ap_
+
+# OS X
+Icon
+Thumbs.db
+.DS_Store
+xcuserdata
+
+# FlashDevelop project files
+*.bat
+*.as3proj
+AIR_Android_readme.txt
+AIR_iOS_readme.txt
+icons
+bat
+actionscript/*/bin
+lib
+obj
+ane
+cert
+
+# Flash Builder
+.actionScriptProperties
+.flexLibProperties
+bin-debug
 bin-release/
-res/
-
-# Local configuration file (sdk path, etc)
-local.properties
+bin-release-temp/
+libs
 
 # Flash file
 *.swc
 *.ane
 *.swf
-
-# Java package
-*.jar
