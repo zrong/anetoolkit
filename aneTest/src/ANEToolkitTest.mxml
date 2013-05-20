@@ -193,6 +193,12 @@
 				showInfo("屏幕是否打开：", ANEToolkit.power.isScreenOn());
 			}
 			
+			protected function handler_restart(event:MouseEvent):void
+			{
+				NativeApplication.nativeApplication.exit();
+				ANEToolkit.restart.restartApp();
+			}
+			
 		]]>
 	</fx:Script>
 	<s:layout>
@@ -206,6 +212,7 @@
 		<s:Button id="vibrate1BTN" label="振动1" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
+		<s:Button id="restartBTN" label="重启" click="handler_restart(event)"/>
 	</s:TileGroup>
 	<s:TileGroup width="100%">
 		<s:Button id="installBTN" label="安装" click="handler_installBTNclick(event)"/>
