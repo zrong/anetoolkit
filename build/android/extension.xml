@@ -1,6 +1,6 @@
 <extension xmlns="http://ns.adobe.com/air/extension/3.2">
-  <id>org.zengrong.ane.AndroidANE</id>
-  <versionNumber>0.1.2</versionNumber>
+  <id>org.zengrong.ane.ANEToolkit</id>
+  <versionNumber>0.1.3</versionNumber>
   <platforms>
 	<platform name="Android-ARM">
       <applicationDeployment>

@@ -13,7 +13,7 @@ import org.zengrong.ane.tool.SystemInfoCont;
 import org.zengrong.ane.tool.VibratorCont;
 
 /**
- * 定义对SG原生插件的调用
+ * 定义对ANE原生插件的调用
  * @author zrong
  * 创建日期：2012-6-3
  */
@@ -22,7 +22,7 @@ public class ANEToolkit
 	/**
 	 * 定义本地插件的ID
 	 */	
-	public static const EXT_ID:String = 'org.zengrong.ane.AndroidANE';
+	public static const EXT_ID:String = 'org.zengrong.ane.ANEToolkit';
 	
 	protected static var _intentCont:IntentCont= null;
 	protected static var _storageCont:StorageCont= null;

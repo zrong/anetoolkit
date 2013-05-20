@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
-			   xmlns:s="library://ns.adobe.com/flex/spark" applicationComplete="handler_application1applicationComplete(event)">
+			   xmlns:s="library://ns.adobe.com/flex/spark" applicationComplete="handler_appComp(event)">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
@@ -17,7 +17,7 @@
 				showInfo('********************');
 			}
 			
-			protected function handler_application1applicationComplete($evt:FlexEvent):void
+			protected function handler_appComp($evt:FlexEvent):void
 			{
 				ANEToolkit.intent.addEventListener(StatusEvent.STATUS, handler_status);
 				ANEToolkit.storage.addEventListener(StatusEvent.STATUS, handler_status);
@@ -193,12 +193,24 @@
 				showInfo("屏幕是否打开：", ANEToolkit.power.isScreenOn());
 			}
 			
+			
 		]]>
 	</fx:Script>
 	<s:layout>
 		<s:VerticalLayout/>
 	</s:layout>
-	<s:TileGroup width="100%">
+	<s:states>
+		<s:State name="fun1State"/>
+		<s:State name="fun2State"/>
+		<s:State name="fun3State"/>
+	</s:states>
+	<s:HGroup width="100%" horizontalAlign="center">
+		<s:Button id="fun1Btn" label="功能1" click="this.currentState='fun1State'" />
+		<s:Button id="fun2Btn" label="功能2" click="this.currentState='fun2State'" />
+		<s:Button id="fun3Btn" label="功能3" click="this.currentState='fun3State'" />
+	</s:HGroup>
+
+	<s:TileGroup width="100%" includeIn="fun1State">
 		<s:Button id="getStorageBTN" label="获取存储信息" click="handler_getStorageBTNclick(event)"/>
 		<s:Button id="getSystemInfoBTN" label="获取系统信息" click="handler_getSystemInfoBTNclick(event)"/>
 		<s:Button id="getPackageInfoBTN" label="获取包信息" click="handler_getPackageInfoBTNclick(event)"/>
@@ -206,16 +218,19 @@
 		<s:Button id="vibrate1BTN" label="振动1" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
-	</s:TileGroup>
-	<s:TileGroup width="100%">
-		<s:Button id="installBTN" label="安装" click="handler_installBTNclick(event)"/>
-		<s:Button id="readBTN" label="删除" click="handler_delBTNClick(event)"/>
-		<s:Button id="readFileBTN" label="读取文件" click="handler_readFileBTNclick(event)"/>
-		<s:Button id="getFileStateBTN" label="获取文件状态" click="handler_getFileStateBTNclick(event)"/>
-		<s:Button id="writeFileBTN" label="写入文件" click="handler_writeFileBTNclick(event)"/>
-		<s:Button id="getAvailFilesBTN" label="获取可用目录" click="handler_getAvailFileBTNClick(event)"/>
-	</s:TileGroup>
-	<s:TileGroup width="100%">
+	</s:TileGroup>		
+	<s:VGroup width="100%" includeIn="fun2State">
+		<s:TileGroup width="100%">
+			<s:Button id="installBTN" label="安装" click="handler_installBTNclick(event)"/>
+			<s:Button id="readBTN" label="删除" click="handler_delBTNClick(event)"/>
+			<s:Button id="readFileBTN" label="读取文件" click="handler_readFileBTNclick(event)"/>
+			<s:Button id="getFileStateBTN" label="获取文件状态" click="handler_getFileStateBTNclick(event)"/>
+			<s:Button id="writeFileBTN" label="写入文件" click="handler_writeFileBTNclick(event)"/>
+			<s:Button id="getAvailFilesBTN" label="获取可用目录" click="handler_getAvailFileBTNClick(event)"/>
+		</s:TileGroup>
+		<s:TextInput id="fileTI" width="100%" prompt="输入待处理文件的绝对路径"/>
+	</s:VGroup>
+	<s:TileGroup width="100%" includeIn="fun3State">
 		<s:Button id="acquireBTN" label="acquire" click="acquireBTN_clickHandler(event)"/>
 		<s:Button id="releaseBTN" label="release" click="releaseBTN_clickHandler(event)"/>
 		<s:Button id="goToSleepBTN" label="goToSleep" click="goToSleepBTN_clickHandler(event)"/>
@@ -223,9 +238,11 @@
 		<s:Button id="userActivityBTN" label="userActivity" click="userActivityBTN_clickHandler(event)"/>
 		<s:Button id="isScreenBTN" label="isScreen" click="isScreenBTN_clickHandler(event)"/>
 	</s:TileGroup>
-	<s:TextInput id="fileTI" width="100%" prompt="输入待处理文件的绝对路径"/>
-	<s:VGroup width="100%" height="100%">
+	<s:VGroup width="100%" height="100%" horizontalAlign="right">
 		<s:TextArea id="infoTA" width="100%" height="100%"/>
-		<s:Button id="clearInfoBTN" label="清除" click="clearInfo()"/>
+		<s:HGroup>
+			<s:Button id="clearInfoBTN" label="清除" click="clearInfo()"/>
+			<s:Button id="exitBtn" label="退出" click="NativeApplication.nativeApplication.exit();"/>
+		</s:HGroup>
 	</s:VGroup>
 </s:Application>

@@ -8,7 +8,7 @@
     <target name="all" depends="android,ios,ios-simulator,swc-mobile,swc-default,package" description="Full build of extension"/>
 
 	<!-- Package Android only extension -->
-	<target name="android-ane" depends="android,swc-mobile,package-android" description="Build Android only extension"/>
+	<target name="android-ane" depends="android,swc-mobile,swc-default,package-android" description="Build Android only extension"/>
 
     <!-- iOS -->
     <target name="ios" description="Build iOS Library">
