@@ -1,30 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <application xmlns="http://ns.adobe.com/air/application/3.7">
-  <!-- Adobe AIR Application Descriptor File Template.
-
-	Specifies parameters for identifying, installing, and launching AIR applications.
-
-	xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/3.2
-			The last segment of the namespace specifies the version 
-			of the AIR runtime required for this application to run.
-			
-	minimumPatchLevel - The minimum patch level of the AIR runtime required to run 
-			the application. Optional.
--->
-  <!-- A universally unique application identifier. Must be unique across all AIR applications.
-	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
   <id>org.zengrong.anetoolkitsample</id>
-  <!-- 
-	<id>us.sanguo.sg.fugleman</id>
-	 -->
-  <!-- Used as the filename for the application. Required. -->
   <filename>ANEToolkitsample</filename>
-  <!-- The name that is displayed in the AIR application installer. 
-	May have multiple values for each language. See samples or xsd schema file. Optional. -->
   <name>ANEToolkit Sample</name>
-  <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
-	Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
-	An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5 . -->
   <versionNumber>0.0.4</versionNumber>
   <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
   <!-- <versionLabel></versionLabel> -->
@@ -137,62 +115,20 @@
 			</icon> -->
   <!-- </fileType> -->
   <!-- </fileTypes> -->
-  <!-- iOS specific capabilities -->
-  <!-- <iPhone> -->
-  <!-- A list of plist key/value pairs to be added to the application Info.plist -->
-  <!-- <InfoAdditions>
-            <![CDATA[
-                <key>UIDeviceFamily</key>
-                <array>
-                    <string>1</string>
-                    <string>2</string>
-                </array>
-                <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleBlackOpaque</string>
-                <key>UIRequiresPersistentWiFi</key>
-                <string>YES</string>
-            ]]>
-        </InfoAdditions> -->
-  <!-- A list of plist key/value pairs to be added to the application Entitlements.plist -->
-  <!-- <Entitlements>
-            <![CDATA[
-                <key>keychain-access-groups</key>
-                <array>
-                    <string></string>
-                    <string></string>
-                </array>
-            ]]>
-        </Entitlements> -->
-  <!-- Display Resolution for the app (either "standard" or "high"). Optional. Default "standard" -->
-  <!-- <requestedDisplayResolution></requestedDisplayResolution> -->
-  <!-- </iPhone> -->
-  <!-- Specify Android specific tags that get passed to AndroidManifest.xml file. -->
-  <!--<android> -->
-  <!--	<manifestAdditions>
-		<![CDATA[
-			<manifest android:installLocation="auto">
-				<uses-permission android:name="android.permission.INTERNET"/>
-				<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-				<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-				<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
-				<application android:enabled="true">
-					<activity android:excludeFromRecents="false">
-						<intent-filter>
-							<action android:name="android.intent.action.MAIN"/>
-							<category android:name="android.intent.category.LAUNCHER"/>
-						</intent-filter>
-					</activity>
-				</application>
-            </manifest>
-		]]>
-        </manifestAdditions> -->
-  <!-- Color depth for the app (either "32bit" or "16bit"). Optional. Default 16bit before namespace 3.0, 32bit after -->
-  <!-- <colorDepth></colorDepth> -->
-  <!-- </android> -->
-  <!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
   <android>
     <colorDepth>16bit</colorDepth>
-    <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
+	<manifestAdditions><![CDATA[<manifest android:installLocation="auto">
+	<application android:enabled="true"> 
+		<!-- 以下receiver和service为重启APP所用 -->
+		<receiver android:name="org.zengrong.ane.funs.restart.BootSystemReceiver" >
+			<!-- 若希望修改indent name，可以修改JAVA源码中 org.zengrong.ane.funs.restart.AppRestart 中的对应字符串 -->
+			<intent-filter>
+				<action android:name="com.android.rect.restart.airApp" />
+			</intent-filter>
+		</receiver>
+		<service android:name="org.zengrong.ane.funs.restart.NotificationService" />
+		<!-- 重启APP需要内容完毕 -->
+	</application>
 	<!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
 	<!--删除 android.permission.INTERNET 权限将导致无法调试设备上的应用程序-->
 	<uses-permission android:name="android.permission.INTERNET" />

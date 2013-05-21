@@ -8,6 +8,7 @@ import org.zengrong.ane.tool.IntentCont;
 import org.zengrong.ane.tool.PackageInfoCont;
 import org.zengrong.ane.tool.PowerCont;
 import org.zengrong.ane.tool.PreferenceCont;
+import org.zengrong.ane.tool.RestartCont;
 import org.zengrong.ane.tool.StorageCont;
 import org.zengrong.ane.tool.SystemInfoCont;
 import org.zengrong.ane.tool.VibratorCont;
@@ -31,6 +32,7 @@ public class ANEToolkit
 	protected static var _packageInfoCont:PackageInfoCont= null;
 	protected static var _preferenceCont:PreferenceCont= null;
 	protected static var _powerCont:PowerCont = null;
+	protected static var _restartCont:RestartCont = null;
 	
 	/**
 	 * 获取Intent功能
@@ -123,6 +125,19 @@ public class ANEToolkit
 			_powerCont= new PowerCont(ExtensionContext.createExtensionContext(EXT_ID, ANEContext.POWER));
 		}
 		return _powerCont;
+	}
+	
+	/**
+	 * 重启APP
+	 */
+	public static function get restart():RestartCont
+	{
+		if(!_restartCont)
+		{
+			checkSuppored();
+			_restartCont= new RestartCont(ExtensionContext.createExtensionContext(EXT_ID, ANEContext.RESTART));
+		}
+		return _restartCont;
 	}
 	
 	

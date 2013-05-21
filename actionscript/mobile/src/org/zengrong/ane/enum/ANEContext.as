@@ -41,5 +41,10 @@ public class ANEContext
 	 * 获取电源管理功能的上下文
 	 */
 	public static const POWER:String = 'POWER';
+	
+	/**
+	 *重启应用 
+	 */	
+	public static const RESTART:String = 'RESTART';
 }
 }
