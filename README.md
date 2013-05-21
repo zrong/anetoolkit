@@ -31,3 +31,7 @@ anetoolkit
 * 复制 `build/example.build.config` 为 `build/build.config`
 * 修改其中的 `flex.sdk` 和 `android.sdk` 变量为正确的路径
 * 运行 `ant android-ane`
+
+## 作者
+
+ANEToolkit 由 [zrong](http://zengrong.net) 和 [rect](http://www.shadowkong.com/) 共同完成。
