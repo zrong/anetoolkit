@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <application xmlns="http://ns.adobe.com/air/application/3.7">
   <id>org.zengrong.anetoolkitsample</id>
   <filename>ANEToolkitsample</filename>
@@ -52,15 +52,15 @@
   <android>
     <colorDepth>16bit</colorDepth>
 	<manifestAdditions><![CDATA[<manifest android:installLocation="auto">
-	<application android:enabled="true"> dd
+	<application android:enabled="true">
 		<!-- 以下receiver和service为重启APP所用 -->
+		<!-- 若希望修改indent name 可以修改JAVA源码 org.zengrong.ane.funs.restart.AppRestart 中的对应字符串 -->
 		<receiver android:name="org.zengrong.ane.funs.restart.BootSystemReceiver" >
-			<!-- 若希望修改indent name，可以修改JAVA源码中 org.zengrong.ane.funs.restart.AppRestart 中的对应字符串 -->
 			<intent-filter>
 				<action android:name="com.android.rect.restart.airApp" />
 			</intent-filter>
 		</receiver>
-		<service android:name="org.zengrong.ane.funs.restart.NotificationService" />
+		<service android:name="org.zengrong.ane.funs.restart.NotificationService"></service>
 		<!-- 重启APP需要内容完毕 -->
 	</application>
 	<!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
