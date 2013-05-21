@@ -42,6 +42,7 @@ lib
 obj
 ane
 cert
+dist
 
 # Flash Builder
 .actionScriptProperties
