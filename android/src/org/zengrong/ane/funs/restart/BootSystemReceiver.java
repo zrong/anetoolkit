@@ -16,9 +16,18 @@ public class BootSystemReceiver extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-
-		Log.d(TAG, "注册  BootSystemReceiver");
+		Log.d(TAG, "停止  BootSystemReceiver");
+		
 		Intent serviceIntent = new Intent(context, NotificationService.class);
-		context.startService(serviceIntent);
+		if(AppRestart.isRstart == 1)
+		{
+			Log.d(TAG, "开启  服务");
+			context.startService(serviceIntent);
+		}
+		else 
+		{
+			Log.d(TAG, "停止  服务");
+			context.stopService(serviceIntent);
+		}
 	}
 }

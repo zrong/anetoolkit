@@ -16,17 +16,31 @@ public class AppRestart implements FREFunction {
 	public static final String TAG = "org.zengrong.ane.funs.restart.AppRestart";
 	
 	private FREContext _context;
-	
+	public static int isRstart;
 	@Override
 	public FREObject call(FREContext $context, FREObject[] $args)
 	{
 		_context = $context;
 		FREObject result = null; 
+		
+		try
+		{
+			FREObject messageObject = $args[0];
+		    isRstart = messageObject.getAsInt();
+		}
+		catch (Exception e)
+	    {
+			_context.dispatchStatusEventAsync(TAG, "传入参数错误！");
+	    }
 		//--------------------------------
-		Log.e(TAG, "开始重启A");  
+		Log.e(TAG, "开始重启");  
 		//--------------------------------
+		
 		Intent intent = new Intent( "com.android.rect.restart.airApp" );
 		_context.getActivity().sendBroadcast(intent);
+		
+	
+		
 		return result;
 	}
 
