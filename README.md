@@ -18,8 +18,13 @@ anetoolkit
 * 获取网络名称，包括手机号码（部分手机可用）、手机网络（GPRS/GSM/WCDMA...）
 * 获取网络连通状态
 * 电源管理，禁止休眠，保持屏幕常亮
+* 重启自身
 
-文档:<http://zrong.github.com/doc/anetoolkit/>
+## 资源
+
+* [文档](http://zrong.github.io/anetoolkit/doc/)
+* [ANE](https://github.com/zrong/anetoolkit/blob/master/bin/ANEToolkit.ane)
+* [sample](https://github.com/zrong/anetoolkit/tree/master/sample)
 
 ## 编译方法
 
