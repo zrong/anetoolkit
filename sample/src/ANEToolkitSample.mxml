@@ -193,14 +193,16 @@
 				showInfo("屏幕是否打开：", ANEToolkit.power.isScreenOn());
 			}
 			
-<<<<<<< HEAD:sample/src/ANEToolkitSample.mxml
-=======
 			protected function handler_restart(event:MouseEvent):void
 			{
-				NativeApplication.nativeApplication.exit();
+				exit();
 				ANEToolkit.restart.restartApp();
 			}
->>>>>>> 519cc1b22e0b9a742212b4c97c7c06b7fdd86019:aneTest/src/ANEToolkitTest.mxml
+			
+			private function exit():void
+			{
+				NativeApplication.nativeApplication.exit();
+			}
 			
 		]]>
 	</fx:Script>
@@ -226,7 +228,7 @@
 		<s:Button id="vibrate1BTN" label="振动1" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
-<<<<<<< HEAD:sample/src/ANEToolkitSample.mxml
+		<s:Button id="restartBTN" label="重启" click="handler_restart(event)"/>
 	</s:TileGroup>		
 	<s:VGroup width="100%" includeIn="fun2State">
 		<s:TileGroup width="100%">
@@ -240,19 +242,6 @@
 		<s:TextInput id="fileTI" width="100%" prompt="输入待处理文件的绝对路径"/>
 	</s:VGroup>
 	<s:TileGroup width="100%" includeIn="fun3State">
-=======
-		<s:Button id="restartBTN" label="重启" click="handler_restart(event)"/>
-	</s:TileGroup>
-	<s:TileGroup width="100%">
-		<s:Button id="installBTN" label="安装" click="handler_installBTNclick(event)"/>
-		<s:Button id="readBTN" label="删除" click="handler_delBTNClick(event)"/>
-		<s:Button id="readFileBTN" label="读取文件" click="handler_readFileBTNclick(event)"/>
-		<s:Button id="getFileStateBTN" label="获取文件状态" click="handler_getFileStateBTNclick(event)"/>
-		<s:Button id="writeFileBTN" label="写入文件" click="handler_writeFileBTNclick(event)"/>
-		<s:Button id="getAvailFilesBTN" label="获取可用目录" click="handler_getAvailFileBTNClick(event)"/>
-	</s:TileGroup>
-	<s:TileGroup width="100%">
->>>>>>> 519cc1b22e0b9a742212b4c97c7c06b7fdd86019:aneTest/src/ANEToolkitTest.mxml
 		<s:Button id="acquireBTN" label="acquire" click="acquireBTN_clickHandler(event)"/>
 		<s:Button id="releaseBTN" label="release" click="releaseBTN_clickHandler(event)"/>
 		<s:Button id="goToSleepBTN" label="goToSleep" click="goToSleepBTN_clickHandler(event)"/>
@@ -264,7 +253,7 @@
 		<s:TextArea id="infoTA" width="100%" height="100%"/>
 		<s:HGroup>
 			<s:Button id="clearInfoBTN" label="清除" click="clearInfo()"/>
-			<s:Button id="exitBtn" label="退出" click="NativeApplication.nativeApplication.exit();"/>
+			<s:Button id="exitBtn" label="退出" click="exit();"/>
 		</s:HGroup>
 	</s:VGroup>
 </s:Application>

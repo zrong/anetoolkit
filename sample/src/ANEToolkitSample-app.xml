@@ -1,49 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <application xmlns="http://ns.adobe.com/air/application/3.7">
   <id>org.zengrong.anetoolkitsample</id>
   <filename>ANEToolkitsample</filename>
   <name>ANEToolkit Sample</name>
   <versionNumber>0.0.4</versionNumber>
-  <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
-  <!-- <versionLabel></versionLabel> -->
-  <!-- Description, displayed in the AIR application installer.
-	May have multiple values for each language. See samples or xsd schema file. Optional. -->
-  <!-- <description></description> -->
-  <!-- Copyright information. Optional -->
-  <!-- <copyright></copyright> -->
-  <!-- Publisher ID. Used if you're updating an application created prior to 1.5.3 -->
-  <!-- <publisherID></publisherID> -->
-  <!-- Settings for the application's initial window. Required. -->
   <initialWindow>
-    <!-- The main SWF or HTML file of the application. Required. -->
-    <!-- Note: In Flash Builder, the SWF reference is set automatically. -->
     <content>ANEToolkitsample.swf</content>
-    <!-- The title of the main window. Optional. -->
-    <!-- <title></title> -->
-    <!-- The type of system chrome to use (either "standard" or "none"). Optional. Default standard. -->
-    <!-- <systemChrome></systemChrome> -->
-    <!-- Whether the window is transparent. Only applicable when systemChrome is none. Optional. Default false. -->
-    <!-- <transparent></transparent> -->
-    <!-- Whether the window is initially visible. Optional. Default false. -->
-    <!-- <visible></visible> -->
-    <!-- Whether the user can minimize the window. Optional. Default true. -->
-    <!-- <minimizable></minimizable> -->
-    <!-- Whether the user can maximize the window. Optional. Default true. -->
-    <!-- <maximizable></maximizable> -->
-    <!-- Whether the user can resize the window. Optional. Default true. -->
-    <!-- <resizable></resizable> -->
-    <!-- The window's initial width in pixels. Optional. -->
-    <!-- <width></width> -->
-    <!-- The window's initial height in pixels. Optional. -->
-    <!-- <height></height> -->
-    <!-- The window's initial x position. Optional. -->
-    <!-- <x></x> -->
-    <!-- The window's initial y position. Optional. -->
-    <!-- <y></y> -->
-    <!-- The window's minimum size, specified as a width/height pair in pixels, such as "400 200". Optional. -->
-    <!-- <minSize></minSize> -->
-    <!-- The window's initial maximum size, specified as a width/height pair in pixels, such as "1600 1200". Optional. -->
-    <!-- <maxSize></maxSize> -->
     <!-- The initial aspect ratio of the app when launched (either "portrait" or "landscape"). Optional. Mobile only. Default is the natural orientation of the device -->
     <!-- <aspectRatio></aspectRatio> -->
     <!-- Whether the app will begin auto-orienting on launch. Optional. Mobile only. Default false -->
@@ -87,38 +49,10 @@
 		<image114x114></image114x114>
 		<image128x128></image128x128>
 	</icon> -->
-  <!-- Whether the application handles the update when a user double-clicks an update version
-	of the AIR file (true), or the default AIR application installer handles the update (false).
-	Optional. Default false. -->
-  <!-- <customUpdateUI></customUpdateUI> -->
-  <!-- Whether the application can be launched when the user clicks a link in a web browser.
-	Optional. Default false. -->
-  <!-- <allowBrowserInvocation></allowBrowserInvocation> -->
-  <!-- Listing of file types for which the application can register. Optional. -->
-  <!-- <fileTypes> -->
-  <!-- Defines one file type. Optional. -->
-  <!-- <fileType> -->
-  <!-- The name that the system displays for the registered file type. Required. -->
-  <!-- <name></name> -->
-  <!-- The extension to register. Required. -->
-  <!-- <extension></extension> -->
-  <!-- The description of the file type. Optional. -->
-  <!-- <description></description> -->
-  <!-- The MIME content type. -->
-  <!-- <contentType></contentType> -->
-  <!-- The icon to display for the file type. Optional. -->
-  <!-- <icon>
-				<image16x16></image16x16>
-				<image32x32></image32x32>
-				<image48x48></image48x48>
-				<image128x128></image128x128>
-			</icon> -->
-  <!-- </fileType> -->
-  <!-- </fileTypes> -->
   <android>
     <colorDepth>16bit</colorDepth>
 	<manifestAdditions><![CDATA[<manifest android:installLocation="auto">
-	<application android:enabled="true"> 
+	<application android:enabled="true"> dd
 		<!-- 以下receiver和service为重启APP所用 -->
 		<receiver android:name="org.zengrong.ane.funs.restart.BootSystemReceiver" >
 			<!-- 若希望修改indent name，可以修改JAVA源码中 org.zengrong.ane.funs.restart.AppRestart 中的对应字符串 -->
@@ -144,23 +78,22 @@
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
 	<!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
-	<!--应同时切换 DISABLE_KEYGUARD 和 WAKE_LOCK 权限，才能访问 AIR
-		的 SystemIdleMode API-->
+	<!--应同时切换 DISABLE_KEYGUARD 和 WAKE_LOCK 权限，才能访问 AIR的 SystemIdleMode API-->
 	<!--<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>-->
 	<!--<uses-permission android:name="android.permission.CAMERA"/>-->
 	<!--<uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
-	<!--应同时切换 ACCESS_NETWORK_STATE 和 ACCESS_WIFI_STATE 权限，才能使用 AIR
-		的 NetworkInfo API-->
+	<!--应同时切换 ACCESS_NETWORK_STATE 和 ACCESS_WIFI_STATE 权限，才能使用 AIR的 NetworkInfo API-->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-</manifest>]]></manifestAdditions>
+	</manifest>]]></manifestAdditions>
   </android>
   <iPhone>
-    <InfoAdditions><![CDATA[<key>UIDeviceFamily</key>
-<array>
-	<string>1</string>
-	<string>2</string>
-</array>]]></InfoAdditions>
+    <InfoAdditions><![CDATA[
+	<key>UIDeviceFamily</key>
+	<array>
+		<string>1</string>
+		<string>2</string>
+	</array>]]></InfoAdditions>
     <requestedDisplayResolution>high</requestedDisplayResolution>
   </iPhone>
   <extensions>
