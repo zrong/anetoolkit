@@ -40,9 +40,10 @@ icons
 bat
 lib
 obj
-ane
 cert
-dist
+sample/dist
+actionscript/mobile/ane
+sample/ane
 
 # Flash Builder
 .actionScriptProperties
