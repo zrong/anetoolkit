@@ -193,10 +193,16 @@
 				showInfo("屏幕是否打开：", ANEToolkit.power.isScreenOn());
 			}
 			
-			protected function handler_restart(event:MouseEvent):void
+			protected function handler_restart_open(event:MouseEvent):void
 			{
 				exit();
-				ANEToolkit.restart.restartApp();
+				ANEToolkit.restart.restartApp(1);
+			}
+			
+			protected function handler_restart_close(event:MouseEvent):void
+			{
+				exit();
+				ANEToolkit.restart.restartApp(0);
 			}
 			
 			private function exit():void
@@ -228,7 +234,8 @@
 		<s:Button id="vibrate1BTN" label="振动1" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
-		<s:Button id="restartBTN" label="重启" click="handler_restart(event)"/>
+		<s:Button id="restart1BTN" label="开启重启" click="handler_restart_open(event)"/>
+		<s:Button id="restart2BTN" label="关闭重启" click="handler_restart_close(event)"/>
 	</s:TileGroup>		
 	<s:VGroup width="100%" includeIn="fun2State">
 		<s:TileGroup width="100%">
