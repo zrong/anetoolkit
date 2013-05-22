@@ -208,6 +208,8 @@
             <arg line='-doc-sources ${basedir}/../actionscript/mobile/src'/>
             <arg line='-output ${basedir}/../docs'/>
             <arg line='-library-path+="${flex.sdk}/frameworks/libs/air/airglobal.swc"'/>
+            <arg line='-main-title "ANEToolkit documentation"'/>
+            <arg line='-metadata.creator zrong'/>
         </java>
     </target>
 
