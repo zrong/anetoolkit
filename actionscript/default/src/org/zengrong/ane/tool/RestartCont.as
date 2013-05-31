@@ -24,5 +24,14 @@ package org.zengrong.ane.tool
 		{
 			_extension.call(AppRestart.RESTART, $key);
 		}
+		
+		/**
+		 * 重启AIR
+		 * @param $key 
+		 */
+		public function rebootApp($key:int = 1000):void
+		{
+			_extension.call(AppRestart.REBOOT, $key);
+		}
 	} 
 }

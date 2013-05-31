@@ -11,5 +11,9 @@ package org.zengrong.ane.enum
 		 *重启应用 
 		 */	
 		public static const RESTART:String = 'RESTART';
+		/**
+		 *重启应用 
+		 */	
+		public static const REBOOT:String = 'REBOOT';
 	} 
 }

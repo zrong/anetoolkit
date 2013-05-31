@@ -205,6 +205,12 @@
 				ANEToolkit.restart.restartApp(0);
 			}
 			
+			protected function handler_reboot(event:MouseEvent):void
+			{
+				exit();
+				ANEToolkit.restart.rebootApp();
+			}
+			
 			private function exit():void
 			{
 				NativeApplication.nativeApplication.exit();
@@ -234,8 +240,9 @@
 		<s:Button id="vibrate1BTN" label="振动1" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate2BTN" label="振动2" click="handler_vibrateBTNclick(event)"/>
 		<s:Button id="vibrate3BTN" label="振动3" click="handler_vibrateBTNclick(event)"/>
-		<s:Button id="restart1BTN" label="开启重启" click="handler_restart_open(event)"/>
-		<s:Button id="restart2BTN" label="关闭重启" click="handler_restart_close(event)"/>
+		<s:Button id="restart1BTN" label="开启自注册服务重启" click="handler_restart_open(event)"/>
+		<s:Button id="restart2BTN" label="关闭自注册服务重启" click="handler_restart_close(event)"/>
+		<s:Button id="restart3BTN" label="调用系统服务重启" click="handler_reboot(event)"/>
 	</s:TileGroup>		
 	<s:VGroup width="100%" includeIn="fun2State">
 		<s:TileGroup width="100%">
