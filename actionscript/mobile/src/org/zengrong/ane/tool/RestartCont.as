@@ -17,12 +17,21 @@ package org.zengrong.ane.tool
 		} 
 		
 		/**
-		 * 重启AIR
+		 * 重启AIR，使用自定义服务
 		 * @param $key 
 		 */
 		public function restartApp($key:int = 0):void
 		{
 			_extension.call(AppRestart.RESTART, $key);
+		}
+		
+		/**
+		 * 重启AIR，使用系统服务
+		 * @param $key 
+		 */
+		public function rebootApp($key:int = 1000):void
+		{
+			_extension.call(AppRestart.REBOOT, $key);
 		}
 	} 
 }

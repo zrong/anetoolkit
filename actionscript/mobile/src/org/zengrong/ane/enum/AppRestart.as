@@ -8,8 +8,13 @@ package org.zengrong.ane.enum
 	public class AppRestart 
 	{ 
 		/**
-		 *重启应用 
+		 * 重启应用，使用自定义服务
 		 */	
 		public static const RESTART:String = 'RESTART';
+		
+		/**
+		 * 重启应用 ，使用系统服务
+		 */	
+		public static const REBOOT:String = 'REBOOT';
 	} 
 }
